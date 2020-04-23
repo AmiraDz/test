@@ -1,3 +1,6 @@
+require_relative '/home/amira/test/pages/search_results.rb'
+require_relative '/home/amira/test/pages/place_pane.rb'
+
 
 class HomePage < SitePrism::Page
   set_url 'http://www.navigator.ba/'
