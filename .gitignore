@@ -1,0 +1,5 @@
+.rspec
+rspec_results.html
+Gemfile.lock
+spec_helper.rb
+
