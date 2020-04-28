@@ -15,16 +15,13 @@ describe 'testovi' do
     @app.wait_until_search_field_visible
     @app.search_for('Dos Hermanos')
         .open_result
-    sleep(3)
   end
 
   it do
     @app.open_place_form
-    sleep(3)
   end
 
   it do
     @app.suggest_form
-    sleep(3)
   end
 end
