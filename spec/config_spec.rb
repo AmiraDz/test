@@ -7,6 +7,9 @@ require 'site_prism/all_there'
 require_relative '/home/amira/test/pages/homepage.rb'
 require_relative '/home/amira/test/pages/search_results.rb'
 require_relative '/home/amira/test/pages/place_pane.rb'
+require_relative '/home/amira/test/pages/place_form.rb'
+require_relative '/home/amira/test/pages/suggest_form.rb'
+
 
 RSpec.configure do |config|
   config.before(:all) do

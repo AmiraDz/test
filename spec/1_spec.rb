@@ -1,6 +1,9 @@
 require_relative '/home/amira/test/pages/homepage.rb'
 require_relative '/home/amira/test/pages/search_results.rb'
 require_relative '/home/amira/test/pages/place_pane.rb'
+require_relative '/home/amira/test/pages/place_form.rb'
+require_relative '/home/amira/test/pages/suggest_form.rb'
+
 
 describe 'testovi' do
   it do
@@ -10,13 +13,18 @@ describe 'testovi' do
 
   it do
     @app.wait_until_search_field_visible
-    @app.search_for('Atlantbh')
+    @app.search_for('Dos Hermanos')
         .open_result
+    sleep(3)
+  end
 
+  it do
+    @app.open_place_form
+    sleep(3)
+  end
 
-
-
-
+  it do
+    @app.suggest_form
     sleep(3)
   end
 end
