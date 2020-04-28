@@ -14,4 +14,9 @@ class HomePage < SitePrism::Page
     search_button.click
     return(SearchResults.new)
   end
+
+  def open_place_form
+    create_place.click
+    return(PlaceForm.new)
+  end
 end
