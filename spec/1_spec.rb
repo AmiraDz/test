@@ -12,7 +12,6 @@ describe 'testovi' do
   end
 
   it do
-    @app.wait_until_search_field_visible
     @app.search_for('Dos Hermanos')
         .open_result
   end
@@ -22,6 +21,12 @@ describe 'testovi' do
   end
 
   it do
-    @app.suggest_form
+    @app.open_suggest_form
+        .fill_in_suggestion_form('amira dz', 'adz@gmail.com', 'neki komentar')
+        .submit_suggestion_form
+
+    sleep(3)
   end
+
+
 end

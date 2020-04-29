@@ -21,7 +21,7 @@ class HomePage < SitePrism::Page
     return(PlaceForm.new)
   end
 
-  def suggest_form
+  def open_suggest_form
     suggest_idea.click
     return(SuggestForm.new)
   end
