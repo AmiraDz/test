@@ -22,5 +22,4 @@ class SuggestForm < SitePrism::Page
     send.click
     return(SuggestForm.new)
   end
-
 end

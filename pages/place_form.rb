@@ -1,4 +1,6 @@
+require_relative '/home/amira/test/pages/header_footer.rb'
 require_relative '/home/amira/test/pages/homepage.rb'
+require_relative '/home/amira/test/pages/place_pane.rb'
 
 class PlaceForm < SitePrism::Page
   set_url 'http://www.navigator.ba/#/create-place'
@@ -6,13 +8,13 @@ class PlaceForm < SitePrism::Page
   element :place_name, 'input#poi_name'
   element :city, 'input#poi_city_name'
   element :zipcode, 'input#poi_zip_code'
-  element :street, 'input#poi_city_name'
+  element :street, 'input#poi_place_id'
   element :street_no, 'input#poi_house_number'
   element :street_alt, 'input#poi_street_name_alt'
   element :description, 'textarea#poi_description'
   element :category_button, "[title='Odaberite kategoriju']"
-  element :category_dropdown, 'select'
-  element :tag, '.tagit.ui-corner-all.ui-widget.ui-widget-content'
+  element :dropdown, 'select'
+  element :tagit, '.tagit-new [autocomplete]'
   elements :workdays, '.days-buttons.row'
   element :work_from, '.row.whours_input > input:nth-of-type(1)'
   element :work_to, '.row.whours_input > input:nth-of-type(2)'
@@ -38,5 +40,15 @@ class PlaceForm < SitePrism::Page
   element :comment, 'textarea#poi_comment'
   element :submit, '.btn.btn-success'
   element :cancel, '.btn.cancel'
+
+  def required_details(name, city_name, code, str_name, str_no)
+    place_name.set name
+    city.set city_name
+    zipcode.set code
+    street.set str_name
+    street_no.set str_no
+    return(PlaceForm.new)
+  end
+
 
 end
