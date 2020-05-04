@@ -1,4 +1,3 @@
-
 require_relative '/home/amira/test/pages/place_pane.rb'
 
 class ClaimForm < SitePrism::Page
