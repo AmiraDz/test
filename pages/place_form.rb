@@ -5,6 +5,7 @@ require_relative '/home/amira/test/pages/place_pane.rb'
 class PlaceForm < SitePrism::Page
   set_url 'http://www.navigator.ba/#/create-place'
   set_url_matcher 'http://www.navigator.ba/#/edit-place/.*'
+
   element :place_name, 'input#poi_name'
   element :city, 'input#poi_city_name'
   element :zipcode, 'input#poi_zip_code'
@@ -40,15 +41,48 @@ class PlaceForm < SitePrism::Page
   element :comment, 'textarea#poi_comment'
   element :submit, '.btn.btn-success'
   element :cancel, '.btn.cancel'
+  element :form_container, '.nav-lefthand-form-container'
+  element :scrollbar, '.mCSB_dragger'
 
-  def required_details(name, city_name, code, str_name, str_no)
-    place_name.set name
-    city.set city_name
-    zipcode.set code
-    street.set str_name
-    street_no.set str_no
+  def fill_in_place_details(name, city_name, code, str_name, str_no)
+      place_name.set name
+      city.set city_name
+      zipcode.set code
+      street.set str_name
+      street_no.set str_no
     return(PlaceForm.new)
   end
 
+  def choose_place_category(option)
+    category_button.click
+    dropdown.select option
+    return(PlaceForm.new)
+  end
 
+  def fill_in_place_phones(landline, mobile, fax_no)
+      land_phone.set landline
+      mobile_phone.set mobile
+      fax.set fax_no
+    return(PlaceForm.new)
+  end
+
+  def fill_in_place_webcontact(fb, ig)
+    within 'form#place-form > div:nth-of-type(5)' do
+      fb_url.set fb
+      ig_url.set ig
+    end
+    return(PlaceForm.new)
+  end
+
+  def upload_image(path)
+    within 'form#place-form > div:nth-of-type(8)' do
+      photo_upload.set path
+    end
+    return(PlaceForm.new)
+  end
+
+  def submit_place_form
+      submit.click
+    return(PlacePane.new)
+  end
 end
